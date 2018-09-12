@@ -83,7 +83,8 @@ type ModelSuite struct {
 }
 
 func Test_ModelSuite(t *testing.T) {
-	model, err := suite.NewModelWithFixtures(packr.NewBox("../fixtures"))
+	box := packr.New("model-fixtures", "../fixtures")
+	model, err := suite.NewModelWithFixtures(*box)
 	if err != nil {
 		t.Fatal(err)
 	}

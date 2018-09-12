@@ -26,8 +26,8 @@ func (res Generator) Run(root string, data makr.Data) error {
 	if res.SkipModel {
 		tmplName = "resource-name"
 	}
-
-	files, err := generators.FindByBox(packr.NewBox("../resource/templates"))
+	box := packr.New("resource-templates", "../resource/templates")
+	files, err := generators.FindByBox(*box)
 	if err != nil {
 		return errors.WithStack(err)
 	}

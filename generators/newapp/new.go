@@ -31,7 +31,7 @@ func (a Generator) Run(root string, data makr.Data) error {
 		os.RemoveAll(a.Root)
 	}
 
-	files, err := generators.FindByBox(Templates)
+	files, err := generators.FindByBox(*Templates)
 	if err != nil {
 		return errors.WithStack(err)
 	}

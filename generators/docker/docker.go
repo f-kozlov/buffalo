@@ -16,16 +16,16 @@ func (d Generator) Run(root string, data makr.Data) error {
 			return d.Style != "none"
 		},
 		Runner: func(root string, data makr.Data) error {
-			var box packr.Box
+			var box *packr.Box
 			switch d.Style {
 			case "standard":
-				box = packr.NewBox("./standard/templates")
+				box = packr.New("docker-standard-templates", "./standard/templates")
 			case "multi":
-				box = packr.NewBox("./multi/templates")
+				box = packr.New("docker-multi-templates", "./multi/templates")
 			default:
 				return errors.Errorf("unknown Docker style: %s", d.Style)
 			}
-			files, err := generators.FindByBox(box)
+			files, err := generators.FindByBox(*box)
 			if err != nil {
 				return errors.WithStack(err)
 			}

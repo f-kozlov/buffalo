@@ -10,8 +10,8 @@ import (
 // Run generator for a .buffalo.dev.yml file
 func Run(root string, data makr.Data) error {
 	g := makr.New()
-
-	files, err := generators.FindByBox(packr.NewBox("../refresh/templates"))
+	box := packr.New("refresh-templates", "../refresh/templates")
+	files, err := generators.FindByBox(*box)
 	if err != nil {
 		return errors.WithStack(err)
 	}

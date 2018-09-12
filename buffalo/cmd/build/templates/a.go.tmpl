@@ -19,7 +19,7 @@ func init() {
   <% } %>
   dropDatabaseYml()
 
-  box := packr.NewBox("./")
+  box := packr.New("a-box", "./")
   if box.Has("inflections.json") {
     r := strings.NewReader(box.String("inflections.json"))
     err := inflect.LoadReader(r)

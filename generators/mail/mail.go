@@ -37,7 +37,8 @@ func (d Generator) Run(root string, data makr.Data) error {
 }
 
 func (d Generator) initGenerator(data makr.Data) error {
-	files, err := generators.FindByBox(packr.NewBox("../mail/init/templates"))
+	box := packr.New("mail-init-templates", "../mail/init/templates")
+	files, err := generators.FindByBox(*box)
 	if err != nil {
 		return errors.WithStack(err)
 	}

@@ -17,7 +17,7 @@ import (
 )
 
 // Templates are the templates needed by this generator
-var Templates = packr.NewBox("../newapp/templates")
+var Templates = packr.New("newapp-templates", "../newapp/templates")
 
 // ErrNotInGoPath can be asserted against
 var ErrNotInGoPath = errors.New("currently not in a $GOPATH")

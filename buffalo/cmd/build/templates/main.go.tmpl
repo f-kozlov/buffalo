@@ -81,7 +81,8 @@ func printVersion() {
 
 <%= if (opts.WithPop) { %>
 func migrate() {
-  box, err := pop.NewMigrationBox(packr.NewBox("./migrations"), models.DB)
+  b := packr.New("migrations-box", "./migrations")
+  box, err := pop.NewMigrationBox(*b, models.DB)
   if err != nil {
     log.Fatalf("Failed to unpack migrations: %s", err)
   }

@@ -21,7 +21,6 @@ type User struct {
 
 func app() *buffalo.App {
 	app := buffalo.New(buffalo.Options{})
-
 	r := render.New(render.Options{
 		TemplatesBox: packr.NewBox("./templates"),
 	})

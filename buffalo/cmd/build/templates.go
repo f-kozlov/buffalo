@@ -12,7 +12,7 @@ import (
 	"github.com/pkg/errors"
 )
 
-var templates = packr.NewBox("./templates")
+var templates = packr.New("build-templates", "./templates")
 
 func (b *Builder) validateTemplates() error {
 	if b.SkipTemplateValidation {

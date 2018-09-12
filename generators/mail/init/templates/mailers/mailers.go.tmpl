@@ -28,9 +28,10 @@ func init() {
 		log.Fatal(err)
 	}
 
+  box := packr.New("mail-templates", "../templates/mail")
 	r = render.New(render.Options{
     HTMLLayout: "layout.html",
-		TemplatesBox: packr.NewBox("../templates/mail"),
+		TemplatesBox: *box,
     Helpers: render.Helpers{},
 	})
 }

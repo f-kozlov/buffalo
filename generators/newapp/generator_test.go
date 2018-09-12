@@ -24,7 +24,7 @@ func Test_Validate_TemplatesMissing(t *testing.T) {
 	defer func() {
 		Templates = obox
 	}()
-	Templates = packr.NewBox(".")
+	Templates = packr.New("Test_Validate_TemplatesMissing", ".")
 
 	g := Generator{}
 	err := g.Validate()

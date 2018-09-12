@@ -4,7 +4,6 @@ import (
 	"context"
 	"os"
 
-	"github.com/gobuffalo/packr/builder"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 )
@@ -48,9 +47,9 @@ func (b *Builder) Run() error {
 	logrus.Debug(b.Options)
 
 	if b.Debug {
-		builder.DebugLog = func(m string, a ...interface{}) {
-			logrus.Debugf(m, a...)
-		}
+		// builder.DebugLog = func(m string, a ...interface{}) {
+		// 	logrus.Debugf(m, a...)
+		// }
 	}
 
 	for _, s := range b.steps {
@@ -66,7 +65,8 @@ func (b *Builder) Run() error {
 // Cleanup after run. This is automatically run at the end of `Run`.
 // It is provided publicly in-case a manual clean up is necessary.
 func (b *Builder) Cleanup() error {
-	builder.Clean(b.Root)
+	// TODO: clean up packr
+	// packr.Clean(b.Root)
 	me := multiError{}
 	for _, c := range b.cleanups {
 		err := c()
