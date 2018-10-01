@@ -1,6 +1,7 @@
 module github.com/gobuffalo/buffalo
 
 require (
+	github.com/cockroachdb/cockroach-go v0.0.0-20181001143604-e0a95dfd547c // indirect
 	github.com/codegangsta/negroni v1.0.0 // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/dustin/go-humanize v0.0.0-20180713052910-9f541cc9db5d
@@ -27,6 +28,7 @@ require (
 	github.com/gorilla/context v1.1.1
 	github.com/gorilla/mux v1.6.2
 	github.com/gorilla/sessions v1.1.2
+	github.com/jackc/pgx v3.2.0+incompatible // indirect
 	github.com/markbates/deplist v1.0.3
 	github.com/markbates/grift v1.0.2
 	github.com/markbates/inflect v1.0.0
